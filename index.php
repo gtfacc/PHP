@@ -13,7 +13,7 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -21,7 +21,7 @@
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
-        -webkit-user-select: none;
+        -webkit-user-select: none;*
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
@@ -42,10 +42,11 @@
 
    <?php
     session_start();
+
     if (!isset($_SESSION["user_id"])) {
       header("Location: /login.php");
     }
-  ?>
+    ?>
 
 
 
@@ -61,7 +62,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="/logout.php">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

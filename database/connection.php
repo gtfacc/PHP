@@ -13,7 +13,7 @@ function connectDB(){
       $connection = new PDO($dsn, $username, $password, $options);
       return $connection;
     } catch (\Exception $e){ //excessoes em php
-      die("Não foi possível conectar na base de dados, verifique os dados de acesso.");
+     die("Não foi possível conectar na base de dados, verifique os dados de acesso.");
     }
 
 }

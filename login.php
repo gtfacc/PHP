@@ -39,8 +39,36 @@
     <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    
+
+  <?php
+      include_once( dirname( __FILE__ ) . "/controllers/LoginController.php");
+      $result = true;
+      $msg = "";
+
+      if(isset($_REQUEST["email"])){
+      
+        $result = auth($_REQUEST["email"],$_REQUEST["password"]);
+        if ($result){
+          header("Location: /index.php");
+        } else {
+          $msg = "Login ou senha inválidos.";          
+        }
+      }
+    ?>
+   
 <form class="form-signin" action="/login.php" method="POST">
+
+  <?php
+    if (!$result){
+  ?>
+    <div class="mb-4">
+      <div class="alert alert-warning" role="alert">
+        <?php echo $msg; ?>
+      </div>
+    </div>
+  <?php
+    }
+  ?>
   <img class="mb-4" src="./img/bootstrap-solid.svg" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Acessar ERP Simples</h1>
   <label for="inputEmail" class="sr-only">Email</label>
